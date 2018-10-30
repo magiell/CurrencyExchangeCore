@@ -37,7 +37,11 @@ namespace FinancialAPICore.Controllers
         {
             if(!_cache.TryGetValue(to, out ExchangeInfo value))
             {
-
+                //일괄 등록이므로 해당 캐시 전체를 리프레시
+                foreach (var item in _exchange_service.RefreshList())
+                {
+                    _cache.Set(item.Currency, item, TimeSpan.FromDays(1));
+                }     
             }
             return JsonConvert.SerializeObject(value);
         }

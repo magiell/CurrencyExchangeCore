@@ -22,8 +22,17 @@ namespace FinancialAPICore.Services.Exchanges
             GetExchangeInfo();
         }
 
-        public void GetExchangeInfo()
+        public List<ExchangeInfo> RefreshList()
         {
+            cache_list.Clear();
+            GetExchangeInfo();
+            List<ExchangeInfo> list = GetList();
+
+            return list;
+        }
+
+        public void GetExchangeInfo()
+        {           
             HtmlDocument document = HttpRequest.LoadHtmlAsync(CRAWLING_URL).ConfigureAwait(false).GetAwaiter().GetResult();            
             HtmlNodeCollection nodes = document.DocumentNode.SelectNodes("//tbody//tr");
             if (nodes.Count == 0)
