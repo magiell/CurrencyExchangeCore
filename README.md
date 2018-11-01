@@ -14,7 +14,7 @@ History
 Develop Burket List
 -------------------
 
--	[ ] Log System (NLOG)
+-	[x] Log System (NLOG)
 -	[ ] Docker-compose 
 -	[ ] apply to docker swarm deployment
 
