@@ -43,7 +43,7 @@ namespace FinancialAPICore.Controllers
                     _cache.Set(item.Currency, item, TimeSpan.FromDays(1));
                 }     
             }
-            return JsonConvert.SerializeObject(value);
+            return value.ConvertToJsonString();
         }
     }
 }

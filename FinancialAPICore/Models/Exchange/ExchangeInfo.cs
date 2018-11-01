@@ -1,4 +1,5 @@
 ﻿using HtmlAgilityPack;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,6 +34,11 @@ namespace FinancialAPICore.Models.Exchange
             Sales = node.ChildNodes[7]?.InnerText;
             SandCash = node.ChildNodes[9]?.InnerText;
             ReceiveCash = node.ChildNodes[11]?.InnerText;            
+        }
+
+        public string ConvertToJsonString()
+        {
+            return JsonConvert.SerializeObject(this);
         }
     }
 }

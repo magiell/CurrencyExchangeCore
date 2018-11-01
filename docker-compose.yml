@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  financialapicore:
+    image: ${DOCKER_REGISTRY}financialapicore
+    build:
+      context: .
+      dockerfile: FinancialAPICore\Dockerfile
