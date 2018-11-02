@@ -37,7 +37,7 @@ namespace FinancialAPICore.Controllers
         [HttpGet]        
         public ActionResult<string> Get(string to, string from = "KRW")
         {
-            _logger.LogInformation(Request.QueryString.Value);
+            _logger.LogDebug(Request.QueryString.Value);
             if(!_cache.TryGetValue(to.ToUpper(), out ExchangeInfo value))
             {
                 //일괄 등록이므로 해당 캐시 전체를 리프레시
